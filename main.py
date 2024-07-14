@@ -5,9 +5,11 @@ from data_entry import get_date, get_amount, get_category, get_description
 import matplotlib.pyplot as plt
 
 class CSV:
+	# class methods
 	CSV_FILE = "finance_data.csv"
 	COLUMNS = ["date", "amount", "category", "description"]
 	FORMAT = "%d-%m-%Y"
+
 
 	@classmethod
 	def initialize_csv(cls):
@@ -16,8 +18,9 @@ class CSV:
 		except FileNotFoundError:
 			# the data frame will access different rows and columns from a csv file
 			df = pd.DataFrame(columns=cls.COLUMNS)
-			# export the created data frame to a csv file
+			# export the created DataFrame to a newly created csv file
 			df.to_csv(cls.CSV_FILE, index=False)
+
 
 	@classmethod
 	def add_csv_entry(cls, date, amount, category, description):
@@ -32,21 +35,37 @@ class CSV:
 			writer.writerow(new_entry)
 		print("Entery added successfully")
 
+
 	# will load all transation from start and end date
+	'''
+	         date  amount category description
+	0  13-07-2024  125.65   Income      Salary
+	1  13-07-2024   63.00  Expense         gas
+	2  13-07-2024  100.01  Expense        food
+	3  10-07-2024 3000.00   Income      Salary
+	4  20-04-2024  600.00   Income     running
+	'''
 	@classmethod
 	def get_transactions(cls, start_date, end_date):
+		# df is the multidimentional DataFrame
 		df = pd.read_csv(cls.CSV_FILE)
+		# Converts the "date" column in the DataFrame to datetime objects
+		# using the specified date format (%d-%m-%Y)
 		df["date"] = pd.to_datetime(df["date"], format=CSV.FORMAT)
+
+		# Converts START & END date strings to datetime objects.
 		start_date = datetime.strptime(start_date, CSV.FORMAT)
 		end_date = datetime.strptime(end_date, CSV.FORMAT)
 
 		mask = (df["date"] >= start_date) & (df["date"] <= end_date)
+		# print(mask) this will be a series of True and False values if it falls in the range
 		filtered_df = df.loc[mask]
 
 		if filtered_df.empty:
 			print("No transaction fount in the given date range")
 		else:
 			print(f"\nTransactions from {start_date.strftime(CSV.FORMAT)} to {end_date.strftime(CSV.FORMAT)}")
+			# filtered transactions, formatting the "date" column back to the original dd-mm-yyyy format.
 			print(filtered_df.to_string(index=False, formatters={"date": lambda x: x.strftime(CSV.FORMAT)}))
 
 			total_income = filtered_df[filtered_df["category"] == "Income"]["amount"].sum()
@@ -60,6 +79,7 @@ class CSV:
 
 
 def add():
+	# class method can only be called on classes. 
 	CSV.initialize_csv()
 
 	date = get_date("Enter the date of the transaction (dd-mm-yyyy) or Enter for today: ", allow_default=True)

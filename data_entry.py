@@ -13,7 +13,7 @@ def get_date(prompt, allow_default=False):
 	try:
 		# ensures the date is in the correct dd-mm-yyyy format.
 		valid_date = datetime.strptime(date_str, "%d-%m-%Y")
-		print(valid_date)
+		print(f"{valid_date} is a valid date")
 		return valid_date.strftime("%d-%m-%Y")
 	except ValueError:
 		print("Invalid date frmat. Please enter the date in dd-mm-yyyy format")
