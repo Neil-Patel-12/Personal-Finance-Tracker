@@ -1,4 +1,29 @@
 date,amount,category,description
-13-07-2024,125.65,Income,Salary
-13-07-2024,63.0,Expense,gas
-13-07-2024,100.01,Expense,food
+01-07-2024,250.00,Expense,groceries
+03-07-2024,150.00,Expense,utilities
+05-07-2024,200.00,Income,freelance work
+06-07-2024,75.00,Expense,transportation
+07-07-2024,50.00,Expense,entertainment
+08-07-2024,100.00,Expense,restaurant
+09-07-2024,500.00,Income,bonus
+11-07-2024,45.00,Expense,clothing
+12-07-2024,30.00,Expense,coffee
+14-07-2024,80.00,Expense,books
+15-07-2024,120.00,Expense,medical
+16-07-2024,90.00,Expense,subscriptions
+17-07-2024,220.00,Income,dividends
+18-07-2024,65.00,Expense,insurance
+19-07-2024,45.00,Expense,maintenance
+20-07-2024,130.00,Expense,entertainment
+21-07-2024,140.00,Expense,groceries
+22-07-2024,60.00,Expense,gas
+23-07-2024,190.00,Expense,utilities
+24-07-2024,300.00,Income,freelance work
+25-07-2024,110.00,Expense,restaurant
+26-07-2024,55.00,Expense,coffee
+27-07-2024,95.00,Expense,subscriptions
+28-07-2024,80.00,Expense,books
+29-07-2024,140.00,Expense,clothing
+30-07-2024,60.7,Expense,HairCut
+03-03-2024,23.0,Income,cut grass
+14-07-2024,11.22,Expense,taco bell
