@@ -20,7 +20,6 @@ def get_date(prompt, allow_default=False):
 		return get_date(prompt, allow_default)
 
 
-
 def get_amount():
 	try:
 		amount = float(input("Enter the amount: "))
