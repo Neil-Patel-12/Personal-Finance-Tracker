@@ -10,7 +10,8 @@ class CSV:
 	COLUMNS = ["date", "amount", "category", "description"]
 	FORMAT = "%d-%m-%Y"
 
-
+	# this decorator means it will have access to the class itself, but no access to its instance
+	# access to class variables and class methods
 	@classmethod
 	def initialize_csv(cls):
 		try:
@@ -59,7 +60,7 @@ class CSV:
 
 		mask = (df["date"] >= start_date) & (df["date"] <= end_date)
 		# print(mask) this will be a series of True and False values if it falls in the range
-		filtered_df = df.loc[mask]
+		filtered_df = df.loc[mask] # this will return a new FILTERED DATAFRAME, that has rows where MASK was True
 
 		if filtered_df.empty:
 			print("No transaction fount in the given date range")

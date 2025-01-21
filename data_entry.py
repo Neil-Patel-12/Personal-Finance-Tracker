@@ -2,7 +2,7 @@ from datetime import datetime
 
 CATEGORIES = {"I": "Income", "E": "Expense"}
 
-def get_date(prompt, allow_default=False):
+def get_date(prompt, allow_default=False) -> str:
 	date_str = input(prompt)
 	if allow_default and not date_str:
 		# this will return todays date.
@@ -20,7 +20,7 @@ def get_date(prompt, allow_default=False):
 		return get_date(prompt, allow_default)
 
 
-def get_amount():
+def get_amount() -> float:
 	try:
 		amount = float(input("Enter the amount: "))
 		if amount <= 0:
@@ -31,7 +31,7 @@ def get_amount():
 		return get_amount()
 
 
-def get_category():
+def get_category() -> str:
 	category = input("Enter the category ('I' for Income or 'E' for Expense): ").upper()
 	if category in CATEGORIES:
 		return CATEGORIES[category]
@@ -40,5 +40,5 @@ def get_category():
 	return get_category
 
 
-def get_description():
+def get_description() -> str:
 	return input("Enter a description (optional): ")
